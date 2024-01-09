@@ -1,0 +1,91 @@
+<html>
+<head>
+
+<link type="text/css" rel="stylesheet" href="css/style.css">
+
+<style>
+header nav{
+    margin-top: 30px;
+}
+header nav ul li{
+    list-style: none;
+}
+header nav ul li a{
+    display: inline-block;
+    text-decoration: none;
+    padding: 7px 10px;
+    margin: 7px 0;
+    color: lightgray;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: 0.6px;
+}
+header nav ul li a:hover i{
+    color: var(--themeColor);
+}
+header nav ul li.active i{
+    color: var(--themeColor);
+} 
+header {
+    height: 100vh;
+    width: 300px;
+    padding: 15px 30px;
+    background-color: var(--sideBGColor);
+    overflow-y: auto;
+    position: fixed;
+    left: 0;
+    top: 0; 
+    bottom: 0;
+    transition: 0.4s;
+    z-index: 99;
+}
+@media only screen and (max-width: 1050px){
+    header {
+        left: -300px;
+    }
+    header .footer{
+        left: -300px;
+    }
+    #menuBtn
+    {
+        display: block;
+    }
+}
+.mobile-nav-active header {
+    left: 0;
+}
+.mobile-nav-active header .footer {
+    left: 0;
+}
+main{
+    margin-left: 300px;
+    background-color: var(--bgColor);
+    transition: 0.3s;
+}
+@media only screen and (max-width: 1050px) {
+    main{
+    margin-left: 0;
+    }
+}
+</style>
+</head>
+<body>
+
+<nav>
+        <ul>
+        <li><a href="#home" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#About"><i class="fa-solid fa-user"></i> About</a></li>
+        <li><a href="#skill"><i class="fa-solid fa-laptop"></i> Skills</a></li>
+        <li><a href="#education"><i class="fa-solid fa-pen"></i> Education</a></li>
+        <li><a href="#projects"><i class="fa-solid fa-computer"></i> Projects</a></li>
+        <li><a href="#Contact"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+        </ul>
+        </nav> 
+<p style="text-align: left;font-size: 15pt"><span th:text="${r.getTemplatenum}"> &#128075;</p>
+
+</body>
+
+<script>
+
+</script>
+</html>

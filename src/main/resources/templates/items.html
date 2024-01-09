@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>Product Detail</title>
+    <link rel="stylesheet" type="text/css" href="css/Style.css">
+</head>
+<body>
+<div class="container">
+    <h1> <div class="container my-5 col-md-8">
+  		<table class="table  table-striped table-hover">Product Deatil</h1>
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Description</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="p :${l}">
+      <td th:text="${p.id}"></td>
+      <td th:text="${p.pname}"></td>
+      <td th:text="${p.price}"></td>
+      <td th:text="${p.description}"></td> 
+      <td><img src='displayprodimage?id=${p.id}' width="10%" height="10%">
+
+      </td> 
+      
+    </tr>
+   
+  </tbody>
+</table>
+</div>
+</body>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+</html>

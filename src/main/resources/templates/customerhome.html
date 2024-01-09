@@ -1,0 +1,202 @@
+<html>
+<head>
+
+<link type="text/css" rel="stylesheet" href="css/style.css">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  height: 42px;
+  overflow: hidden;
+  background: black;
+  transition: height 0.2s linear;
+  cursor: pointer;
+  padding: 8px 12px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+
+  > a {
+    width: 10%;
+    text-align: center;
+    font-size: 1.6rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.5s ease;
+  }
+
+  > a:hover {
+    color: black;
+    opacity: 1;
+    background: white;
+    border-radius: 20px;
+  }
+
+  > div {
+    width: 10%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  & div a {
+    width: 100%;
+    font-size: 1.6rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.5s ease;
+  }
+
+  > div a:hover {
+    color: black;
+    opacity: 1;
+    background: white;
+    border-radius: 20px;
+  }
+}
+
+.navbar:hover {
+  height: 100px;
+  overflow: visible;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  height: 42px;
+  overflow: hidden;
+  background: black;
+  transition: height 0.8s;
+  cursor: pointer;
+  padding: 8px 12px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  opacity: 0.7;
+
+  > a {
+    width: 10%;
+    text-align: center;
+    font-size: 1.6rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.6s ease;
+  }
+
+  > a:hover {
+    color: black;
+    opacity: 1;
+    background: white;
+    border-radius: 20px;
+  }
+
+  > div {
+    width: 10%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  & div a {
+    width: 100%;
+
+    font-size: 1.6rem;
+    color: white;
+    text-decoration: none;
+    transition: all 0.6s ease;
+  }
+
+  > div a:hover {
+    color: black;
+    opacity: 1;
+    background: white;
+    border-radius: 20px;
+  }
+}
+
+.navbar:hover {
+  height: 100px;
+  overflow: visible;
+}
+
+@media only screen and (max-width: 428px) {
+  body {
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+  }
+  .navbar {
+    padding: 8px 4px;
+  }
+  .navbar a {
+    font-size: 0.9rem;
+    margin: 4px 2px;
+    width: auto;
+  }
+
+  .navbar div,
+  .navbar div a {
+    width: auto;
+  }
+  .navbar div a {
+    font-size: 0.9rem;
+    margin: 4px 2px;
+    padding: 2px;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="#">Home</a>
+  <a href="items">About</a>
+  <div>
+    <a href="#">Services</a>
+    <a href="#">Products</a>
+  </div>
+  <div>
+    <a href="#">Dev Com</a>
+    <a href="#">Blog</a>
+    <a href="#">Forum</a>
+  </div>
+  <a href="#">News</a>
+  <a href="#">Contacts</a>
+</nav>
+<p style="text-align: left;font-size: 15pt"><span th:text="${u.name}"> &#128075;</p>
+
+</body>
+
+	
+<script>
+
+</script>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="./sidebar.css">
+  <title>SideBAr</title>
+</head>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  background: white;
+}
+
+.navigation {
+  position: fixed;
+  width: 60px;
+  height: 200%;
+  background: rgb(250, 250, 250);
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.navigation:hover,
+.navigation.active {
+  width: 200px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  transition: 1s;
+}
+
+.navigation ul li:hover {
+  background: #3e3e3e;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: #000000;
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+.navigation ul li a .icon .fa {
+  font-size: 24px;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: #074848;
+  cursor: pointer;
+  transition: 0.7s;
+}
+
+.toggle.active {
+  background: #ff7700;
+}
+
+.toggle::before {
+  content: "\f0c9";
+  font-family: fontAwesome;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+  font-size: 24px;
+  color: #fff;
+}
+
+.toggle.active::before {
+  content: "\f00d";
+}
+
+@media (max-width: 767px) {
+  .navigation {
+    left: -60px;
+  }
+  .navigation.active {
+    left: 0px;
+    width: 100%;
+  }
+}
+</style>
+<body>
+  <div class="navigation">
+    <ul>
+      <li>
+        <a href="">
+          <span class="icon"><i class="fa-solid fa-house"></i></span>
+          <span class="title">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa-solid fa-user"></i></span>
+          <span class="title">Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa-solid fa-message"></i></span>
+          <span class="title">Messages</span>
+        </a>
+      </li>
+      <li>
+        <a href="#addproduct">
+          <span class="icon"><i class="fa-solid fa-plus"></i></span>
+          <span class="title">Add Products</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa-solid fa-gear"></i></span>
+          <span class="title">Orders</span>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <span class="icon"><i class="fa-solid fa-lock"></i></span>
+          <span class="title">Querys</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+          <span class="title">Change product</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa-solid fa-user"></i></span>
+          <span class="title">Earnings</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <span class="icon"><i class="fa-solid fa-message"></i></span>
+          <span class="title"></span>
+        </a>
+      </li>
+      <li>
+        <a href="#contact">
+          <span class="icon"><i class="fa-solid fa-plus"></i></span>
+          <span class="title">Contact</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="#" onclick="showContent('home')">
+          <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+          <span class="title">SignOut</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+
+  <div class="toggle" onclick="toggleMenu()"></div>
+</body>
+<section id="addproduct">
+  <style>
+  .container {
+    width: 800px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Optional styling for form elements */
+  form {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  
+  button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  </style>
+  </head>
+  <body>
+  
+  <div class="container">
+  
+    <h1>Add Product Information</h1>
+  
+  <form method="post" enctype="multipart/form-data" action="insertProduct">
+        <fieldset>
+            <legend>Product information:</legend>
+            <table>
+                <tr>
+                    <td> Reatiler ID</td>
+                    <td><input type="number" name="ReatilerId"></td>
+                </tr>
+                <tr>
+                    <td> Product name</td>
+                    <td><input type="text" name="productName"></td>
+
+                </tr>
+                <tr>
+                    <td> Product Price</td>
+                    <td><input type="number" name="productPrice"></td>
+                </tr>
+                <tr>
+                    <td>Product Description</td>
+                    <td><input type="text" name="productDescription"></td>
+
+                </tr>
+                <tr>
+                    <td>Product Quantity</td>
+                    <td><input type="number" name="Quantity"></td>
+
+                </tr>
+                <tr>
+                    <td> Product Picture</td>
+                    <td><input type="file" name="productImage" value="Upload File"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" name="create" value="Save Product"></td>
+                </tr>
+            </table>
+        </fieldset>
+
+    </form>
+  
+  </div>
+</section>
+<section id="trail" class="content">
+ <div  data-url=" https://akshaytalanki.netlify.app/"></div>
+</section>
+<section id="contact">
+  <div class="visme_d" data-title="New Client Contact Form" data-url="x4zj741n-new-client-contact-form" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="8884"></div><script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
+    </section>
+  <script type="text/javascript">
+    function toggleMenu() {
+      let navigation = document.querySelector('.navigation');
+      let toggle = document.querySelector('.toggle');
+      navigation.classList.toggle('active');
+      toggle.classList.toggle('active');
+    }
+    function showContent(id) {
+  var i, content;
+  content = document.getElementsByClassName("content");
+  for (i = 0; i < content.length; i++) {
+    content[i].style.display = "none";
+  }
+  document.getElementById(id).style.display = "block";
+}
+  </script>
+  
+</body>
+
+</h>
