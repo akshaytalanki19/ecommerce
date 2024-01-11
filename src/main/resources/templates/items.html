@@ -22,7 +22,8 @@
       <td th:text="${p.pname}"></td>
       <td th:text="${p.price}"></td>
       <td th:text="${p.description}"></td> 
-      <td><img src='displayprodimage?id=${p.id}' width="10%" height="10%">
+      <td><img th:src="@{/displayprodimage(id=${p.id})}" width="10%" height="10%" alt="Image of ${p.pname}">
+
 
       </td> 
       
