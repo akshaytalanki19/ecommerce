@@ -18,11 +18,19 @@
   </thead>
   <tbody>
     <tr th:each="p :${l}">
-      <td th:text="${p.id}"></td>
+		<div class="shop-section">
+          <div class="box1 box">
+            <div class="box-content">
+            <h2>Clothing</h2>
+            <div class="box-img" style="background-image: url(/img/box1_image.jpg);"></div>
+            <p>See more</p>
+          </div>
+          </div>
+    <td th:text="${p.id}"></td>
       <td th:text="${p.pname}"></td>
       <td th:text="${p.price}"></td>
       <td th:text="${p.description}"></td> 
-      <td><img th:src="@{/displayprodimage(id=${p.id})}" width="10%" height="10%" alt="Image of ${p.pname}">
+      <td>      <img th:src="@{/displayprodimage(id=${p.id})}" width="10%" height="10%" alt="Image of ${p.pname}"/>
 
 
       </td> 
