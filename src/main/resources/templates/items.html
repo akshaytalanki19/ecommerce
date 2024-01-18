@@ -1,64 +1,754 @@
+
+
 <html>
+
 <head>
+
     <title>Product Detail</title>
+
     <link rel="stylesheet" type="text/css" href="css/Style.css">
+
 </head>
+
 <body>
-<div class="container">
-    <h1> <div class="container my-5 col-md-8">
-  		<table class="table  table-striped table-hover">Product Deatil</h1>
-    <thead>
-    <tr>
-      <th scope="col">Id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Description</th>
-      <th scope="col">Image</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr th:each="p :${l}">
-		<div class="shop-section">
-          <div class="box1 box">
-            <div class="box-content">
-            <h2>Clothing</h2>
-            <div class="box-img" style="background-image: url(/img/box1_image.jpg);"></div>
-            <p>See more</p>
-          </div>
-          </div>
-    <td th:text="${p.id}"></td>
-      <td th:text="${p.pname}"></td>
-      <td th:text="${p.price}"></td>
-      <td th:text="${p.description}"></td> 
-      <td>      <img th:src="@{/displayprodimage(id=${p.id})}" width="10%" height="10%" alt="Image of ${p.pname}"/>
+ <script src="https://codepen.io/shshaw/pen/QmZYMG.js"></script>
 
+    <div id="overlay" ></div>
 
-      </td> 
-      
-    </tr>
+    <div id="closeBtn">&times;</div>
+    <div class="sidenav" id="mySidenav">
+      <div class="sidenavHeader">
+        <i class="fas fa-user-circle"></i> Hello,<h3 th:text="${u.name}"></h3>
+      </div>
+      <!--Below SideNavHeader-->
+      <div id="main-container">
+        <div class="sidenavContentHeader">Trending</div>
+        <a href="#"><div class="sidenavContent">Best Sellers</div></a>
+        <a href="#"><div class="sidenavContent">New Releases</div></a>
+        <a href="#"><div class="sidenavContent">Movers and Shakers</div></a>
+        <hr />
+        <div class="sidenavContentHeader">Shop By Department</div>
+        <a href="#"
+          ><div class="sidenavRow">
+            <div>Fresh Vegtables</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i></div
+        ></a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Books</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Games</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Electronics & Computers</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <div class="sidenavContainer" id="firstContainer">
+          <hr />
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Home, Garden, Pets & DIY</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Toys, Children & Baby</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Clothes, Shoes, Jewellery & Accessories</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Sports & Outdoors</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+          </a>
+          <a href="#" id="toggle-link">
+            <div class="sidenavRow">
+              <div>Shoes</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Health & Beauty</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Watches</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+        </a>
+        </div>
+        <div
+          class="sidenavRowDropdown"
+          id="firstDropDown"
+          onclick="firstDropDown()"
+        >
+          <div>See All</div>
+          <i
+            class="fas fa-chevron-down"
+            style="color: #8e9090; margin-left: 10px"
+          >
+          </i>
+        </div>
+        <hr />
+        <div class="sidenavContentHeader">Programs & Features</div>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Gift Cards & Top Up</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Find a Gift</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <a href="#">
+          <div class="sidenavRow">
+            <div>Handmade</div>
+            <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+          </div>
+        </a>
+        <!--Beginning of second sidenavContainer-->
+        <div class="sidenavContainer" id="secondContainer">
+          <hr />
+          <a href="#">
+            <div class="sidenavContent">Made In India</div>
+          </a>
+          <a href="#">
+            <div class="sidenavRow">
+              <div>Home Services</div>
+              <i class="fas fa-chevron-right" style="color: #8e9090"></i>
+            </div>
+          </a>
+        </div>
+        <div
+          class="sidenavRowDropdown"
+          id="secondDropDown"
+          onclick="secondDropDown()"
+        >
+          <div>See All</div>
+          <i
+            class="fas fa-chevron-down"
+            style="color: #8e9090; margin-left: 10px"
+          >
+          </i>
+        </div>
+        <hr />
+        <div class="sidenavContentHeader">Help & Settings</div>
+        <a href="#"><div class="sidenavContent">Your Account</div></a>
+        <a href="#"><div class="sidenavContent">Currency Settings</div></a>
+        <a href="#"><div class="sidenavContent">Customer Service</div></a>
+        <div style="height: 50px"></div>
+      </div>
+      <!--End of first container-->
+
+      <div id="sub-container">
+        <div id="mainMenu">
+          <i class="fas fa-chevron-left" style="color: #8e9090"></i> MAIN MENU
+        </div>
+        <hr />
+        <div id="sub-container-content">
+          <!-- <div class="sidenavContentHeader">Prime Video</div>
+          <a href="#"><div class="sidenavContent">All Videos</div></a> -->
+        </div>
+      </div>
+    </div>
+
+    <!--Not Sidenav-->
    
-  </tbody>
-</table>
+
+ <div class="all-products" id="all-products">
+    <div th:each="p : ${l}">
+          
+           <div class="main">
+           
+        <div class="shoes">
+            <div class="shoes__image">
+             
+                <img th:src="@{/displayprodimage(id=${p.id})}" width="67%" height="67%" alt="Image of ${p.pname}" class="nike">
+            </div>
+            <div class="shoes__content">
+                <h1 th:text="${p.pname}"></h1>
+                <i class="fa-solid fa-xmark"></i>
+           <p th:text="${p.description}"></p>
+                <div class="rate">
+                    <h5 th:text="${p.price}"></h5>
+                </div>
+                
+                
+                <a href="#" class="btn">Save</a>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
 </div>
+</div>
+<div class="root" id="hidden-content" style="display: none;">
+    <div th:each="p : ${shoes}">
+    <div style="width: 395px; height: 444px; right: 10px; position:relative; background: #FAFAF5; border-radius: 24px; overflow: hidden; border: 2px #E6E6E6 solid">
+      <div style="left: 24px; top: 280px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 26px; word-wrap: break-word"> <h1 th:text="${p.pname}"></h1></div>
+      <div style="left: 24px; top: 310px; position: absolute; color: #426B1F; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 26px; word-wrap: break-word">&#8377;<h5 th:text="${p.price}"></h5></div>
+      <div style="left: 24px; top: 332px; position: absolute; color: #6D6D6D; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 24px; word-wrap: break-word"><p th:text="${p.description}"></p></div>
+            <button style="left: 24px; top: 372px; position: absolute; color: #6D6D6D; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 24px; word-wrap: break-word">Add to cart</button>
+      <img style="width: 395px; height: 296px; left: 0px; top: -25px; position: absolute" th:src="@{/displayprodimage(id=${p.id})}" />
+    </div>
+</div></div>
+
 </body>
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+.root {
+*,
+*:before,
+*:after {
+
+  position: relative;
+  bottom:100%;
+  left: 12%;
+  margin-top: 8%;
   }
 }
+  
+
+
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial";
+}
+
+body{
+  overflow-x: hidden;
+}
+
+#whole-flex {
+  position: absolute;
+  flex-direction: column;
+  text-align: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -10;
+}
+
+/* NavBar */
+.sidenav {
+  max-width: 380px;
+  width: 85%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: white;
+  transform-origin: left center;
+}
+
+.sidenavHeader {
+  color: white;
+  font-weight: bold;
+  background-color: rgb(35, 47, 62);
+  padding: 10px 0px 10px 30px;
+  font-size: 23px;
+}
+
+.sidenavContentHeader {
+  margin-top: 5px;
+  padding: 15px 0px 15px 25px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.sidenavContent {
+  padding: 15px 0px 15px 25px;
+}
+
+.sidenavContent:hover {
+  background-color: #eaeded;
+}
+
+hr {
+  height: 1px;
+  border: 0;
+  color: gray;
+  background-color: gray;
+  margin: 15px auto 10px auto;
+}
+
+.sidenavRow {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 15px 25px 15px 25px;
+}
+
+.sidenavRow:hover {
+  background-color: #eaeded;
+}
+
+.sidenavRow:hover i {
+  color: #111111 !important;
+}
+
+#closeBtn {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 390px;
+  color: white;
+  font-size: 50px;
+  cursor: pointer;
+  z-index: 75;
+  transform: translateY(-5px);
+  transition: visibility 0.5s;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: black;
+}
+
+/* animation */
+
+
+/* Overlay */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Dropdown */
+.sidenavContainer hr {
+  width: 85%;
+}
+
+.sidenavRowDropdown {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  align-items: center;
+  padding: 15px 25px 15px 25px;
+  cursor: pointer;
+}
+
+.sidenavRowDropdown:hover {
+  background-color: #eaeded;
+}
+
+.sidenavRowDropdown:hover i {
+  color: #111111 !important;
+}
+
+.sidenavContainer {
+  display: none;
+  height: 0px;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: center top;
+}
+
+@keyframes expandDropDown {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes collapseDropDown {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+}
+
+/* Container part */
+#main-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+@keyframes mainAway {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(-380px);
+  }
+}
+
+@keyframes mainBack {
+  0% {
+    transform: translateX(-380px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+#sub-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: white;
+  transform: translateX(380px);
+}
+
+@keyframes subBack {
+  0% {
+    transform: translateX(380px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes subPush {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(380px);
+  }
+}
+
+#mainMenu {
+  margin-top: 5px;
+  padding: 15px 0px 15px 25px;
+  font-weight: bold;
+}
+
+#mainMenu:hover {
+  background-color: #eaeded;
+  cursor: pointer;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+}
+
+.main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+ 
+}
+
+.shoes{
+    width: 45%;
+    height: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shoes__image{
+    position: relative;
+    background-color: #c6ac8f;
+    width: 40%;
+    height: 100%;
+    border-radius: 25px 0  0 25px;
+}
+
+.shoes__image .logo{
+    position: absolute;
+    top: -10px;
+    left: 35%;
+    width: 150px;
+}
+
+.shoes__image .nike{
+    position: absolute;
+    width: 111%;
+    top: 20%;
+    left: -15%;
+    transform: rotate(12deg);
+    transition: 0.5s ease;
+    z-index: 10;
+}
+
+.shoes__image .nike:hover{
+    transform: rotate(-5deg);
+}
+
+.shoes__content{
+    position: relative;
+    width: 60%;
+    height: 100%;
+    background-color: #eae0d5;
+    padding-left: 20px;
+    padding: 1rem 20px;
+    border-radius: 0 25px 25px 0;
+}
+
+.shoes__content h1{
+    font-size: 40px;
+    color: #26292c;
+    font-weight: 900;
+    margin-top: 10px;
+    text-shadow: 2px 1px 2px rgba(87, 94, 101, 1);
+}
+
+.fa-xmark{
+    position: absolute;
+    right: 20px;
+    top: 25px;
+    font-size: 40px;
+    color: #212529;
+    cursor: pointer;
+}
+
+.shoes__content h3{
+    font-size: 22px;
+    font-weight: 200;
+    color: #5e503f;
+}
+
+.rate{
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+    margin-right: 20px;
+    gap: 15rem;
+}
+
+.rate h5{
+    color: #415a77;
+    font-size: 25px;
+    padding-left: 5px;
+    font-weight: 700;
+}
+
+.rating i{
+    color: #415a77;
+    font-size: 20px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.rating span{
+    font-size: 20px;
+    font-weight: 600;
+    color: #5e503f;
+}
+
+.shoes__content p{
+    margin-top: 4rem;
+    font-size: 18px;
+    color: #5e503f;
+}
+
+.shoes__content h4{
+    margin-top: 1rem;
+    font-size: 25px;
+    color: #514435;
+}
+
+.shoes__content .size{
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 25px;
+}
+
+.shoes__content .size a{
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    color: #415a77;
+    border: 1px solid #415a77;
+    border-radius: 50%;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    box-shadow: rgba(136, 165, 191, 0.48) 3px 1px 8px 0px, rgba(255, 255, 255, 0.8) -3px -1px 8px 0px;
+}
+
+.shoes__content .size a:nth-child(3){
+    color: #f5f5f5;
+    background-color: #415a77;
+}
+
+.btn{
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-right: 2rem;
+    cursor: pointer;
+    border: 1px solid #415a77;
+    color: #415a77;
+    transition: 0.4s;
+    box-shadow: rgba(136, 165, 191, 0.48) 3px 1px 8px 0px, rgba(255, 255, 255, 0.8) -3px -1px 8px 0px;
+}
+
+.btn:hover{
+    border-radius: 25px;
+}
+
+.btn-primary{
+    padding: 10px 35px;
+    background-color: #415a77;
+    color: #f5f5f5;
+}
+</style>
+<script>
+
+
+let firstDropdownOpen = false;
+
+function firstDropDown() {
+    firstDropdownOpen = !firstDropdownOpen;
+    if(firstDropdownOpen) {
+        document.querySelector("#firstDropDown i").setAttribute("class", "fas fa-chevron-up");
+        document.querySelector("#firstDropDown div").innerHTML = "See Less";
+        //Handle Container
+        document.getElementById("firstContainer").style.display = "block";
+        document.getElementById("firstContainer").style.animation = "expandDropDown 0.3s forwards";
+        document.getElementById("firstContainer").style.transition = "height 0.3s";
+        document.getElementById("firstContainer").style.height = "410px";
+    }else{
+        document.querySelector("#firstDropDown i").setAttribute("class", "fas fa-chevron-down");
+        document.querySelector("#firstDropDown div").innerHTML = "See More";
+        //Handle Container
+        document.getElementById("firstContainer").style.animation = "collapseDropDown 0.2s forwards";
+        document.getElementById("firstContainer").style.transition = "height 0.2s";
+        document.getElementById("firstContainer").style.height = "0px";
+        setTimeout(() => {
+            document.getElementById("firstContainer").style.display = "none";
+        }, 200)
+        
+    }
+}
+
+let secondDropDownOpen = false;
+
+function secondDropDown() {
+    secondDropDownOpen = !secondDropDownOpen;
+
+    if(secondDropDownOpen) {
+        document.querySelector("#secondDropDown i").setAttribute("class", "fas fa-chevron-up");
+        document.querySelector("#secondDropDown div").innerHTML = "See Less";
+        //Handle Container
+        document.getElementById("secondContainer").style.display = "block";
+        document.getElementById("secondContainer").style.animation = "expandDropDown 0.3s forwards";
+        document.getElementById("secondContainer").style.transition = "height 0.3s";
+        document.getElementById("secondContainer").style.height = "260px";
+    }else{
+        document.querySelector("#secondDropDown i").setAttribute("class", "fas fa-chevron-down");
+        document.querySelector("#secondDropDown div").innerHTML = "See More";
+        //Handle Container
+        document.getElementById("secondContainer").style.animation = "collapseDropDown 0.2s forwards";
+        document.getElementById("secondContainer").style.transition = "height 0.2s";
+        document.getElementById("secondContainer").style.height = "0px";
+        setTimeout(() => {
+            document.getElementById("secondContainer").style.display = "none";
+        }, 200)
+        
+    }
+}
+
+document.querySelectorAll(".sidenavRow").forEach(row => {
+    row.addEventListener("click", () => {
+        document.getElementById("main-container").style.animation = "mainAway 0.3s forwards";
+        document.getElementById("sub-container").style.animation = "subBack 0.3s forwards";
+    });
+});
+
+document.getElementById("mainMenu").addEventListener("click", () => {
+    document.getElementById("main-container").style.animation = "mainBack 0.3s forwards";
+    document.getElementById("sub-container").style.animation = "subPush 0.3s forwards";
+})
+
+//subNavContent
+
+
+document.getElementById("toggle-link").addEventListener("click", function() {
+  // Get the div element
+  var div = document.getElementById("hidden-content");
+  var div1= document.getElementById("all-products")
+  // Toggle the visibility of the div
+  if (div.style.display === "none") {
+    div.style.display = "block";
+    div1.style.display = "none";
+  } else {
+    div.style.display = "none";
+    div1.style.display = "block";
+  }
+});
+console.clear();
+
+const elShoes = document.querySelectorAll(".shoe");
+
+[...elShoes].forEach((shoe) => {
+  shoe.addEventListener("click", () => {
+    [...document.querySelectorAll(".shoe[data-active]")].forEach(
+      (el) => delete el.dataset.active
+    );
+
+    shoe.dataset.active = true;
+  });
+});
 </script>
+
 </html>
+
+
+

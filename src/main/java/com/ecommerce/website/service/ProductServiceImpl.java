@@ -26,6 +26,10 @@ public class ProductServiceImpl implements ProductService {
 	public Product ViewProductByID(int pid) {
 		return productRepository.findById(pid).get();
 	}
+	@Override
+	public List<Product> getShoes() {
+		return productRepository.getShoes();
+	}
 	
 	
 

@@ -1,202 +1,1675 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="en">
+
+
 <head>
 
-<link type="text/css" rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+
+</head>
+
+
+<body>
+
+    <section>
+
+        <nav>
+
+            <header>
+
+                <div class="toggle">
+
+                    <i class="fa-solid fa-chevron-right"></i>
+
+                    <i class="fa-solid fa-chevron-left"></i>
+
+                </div>
+
+            </header>
+
+            <menu>
+
+                <ul>
+
+                    <li>
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" placeholder="Search...">
+
+                    </li>
+
+                    <li>
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-house"></i>
+
+                            <span>home</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="items">
+
+                            <i class="fa-solid fa-product-hunt"></i>
+
+                            <span>Products</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-message"></i>
+
+                            <span>messages</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-circle-info"></i>
+
+                            <span>Orders</span>
+
+                        </a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-cart-shopping"></i>
+
+                            <span>cart</span>
+
+                        </a>
+
+                    </li>
+                    <li>
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <span>Profile</span>
+
+                        </a>
+
+                    </li>
+                </ul>
+
+                <div class="mode">
+
+                    <div class="icon">
+
+                        <a href="#">
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <span>logout</span>
+
+                        </a>
+
+                    </div>
+
+                    <div class="dayNight">
+
+                        <div class="switch">
+
+                            <div class="iconBx">
+
+                                <i class="fa-solid fa-moon"></i>
+
+                                <i class="fa-solid fa-sun"></i>
+
+                            </div>
+
+                        </div>
+
+                        <span class="switchText">dark mode</span>
+
+                    </div>
+
+                </div>
+
+            </menu>
+
+        </nav>
+ 
+</section> 
+
+	
+</body>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+:root {
+
+    --body-color: #E4E9F7;
+
+    --sidebar-color: #FFF;
+
+    --primary-color: #695CFE;
+
+    --primary-color-light: #F6F5FF;
+
+    --toggle-color: #DDD;
+
+    --text-color: #707070;
+
+    --transition: all .3s ease;
+
+    --transition1: all .5s ease;
+
 }
-body {
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  width: 100%;
-  height: 42px;
-  overflow: hidden;
-  background: black;
-  transition: height 0.2s linear;
-  cursor: pointer;
-  padding: 8px 12px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0.7;
+iframe {
+            width:100%; 
+            height: 100vh; 
+        }
+        .container {
+            display: flex; /* Use flexbox for layout */
+        }
 
-  > a {
-    width: 10%;
-    text-align: center;
-    font-size: 1.6rem;
-    color: white;
-    text-decoration: none;
-    transition: all 0.5s ease;
-  }
-
-  > a:hover {
-    color: black;
-    opacity: 1;
-    background: white;
-    border-radius: 20px;
-  }
-
-  > div {
-    width: 10%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  & div a {
-    width: 100%;
-    font-size: 1.6rem;
-    color: white;
-    text-decoration: none;
-    transition: all 0.5s ease;
-  }
-
-  > div a:hover {
-    color: black;
-    opacity: 1;
-    background: white;
-    border-radius: 20px;
-  }
-}
-
-.navbar:hover {
-  height: 100px;
-  overflow: visible;
-}
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
-}
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  width: 100%;
-  height: 42px;
-  overflow: hidden;
-  background: black;
-  transition: height 0.8s;
-  cursor: pointer;
-  padding: 8px 12px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  opacity: 0.7;
 
-  > a {
-    width: 10%;
-    text-align: center;
-    font-size: 1.6rem;
-    color: white;
-    text-decoration: none;
-    transition: all 0.6s ease;
-  }
+    margin: 0;
 
-  > a:hover {
-    color: black;
-    opacity: 1;
-    background: white;
-    border-radius: 20px;
-  }
+    padding: 0;
 
-  > div {
-    width: 10%;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-  }
-
-  & div a {
-    width: 100%;
-
-    font-size: 1.6rem;
-    color: white;
-    text-decoration: none;
-    transition: all 0.6s ease;
-  }
-
-  > div a:hover {
-    color: black;
-    opacity: 1;
-    background: white;
-    border-radius: 20px;
-  }
-}
-
-.navbar:hover {
-  height: 100px;
-  overflow: visible;
-}
-
-@media only screen and (max-width: 428px) {
-  body {
-    background-size: cover;
-    background-position: top;
-    background-repeat: no-repeat;
     box-sizing: border-box;
-  }
-  .navbar {
-    padding: 8px 4px;
-  }
-  .navbar a {
-    font-size: 0.9rem;
-    margin: 4px 2px;
-    width: auto;
-  }
 
-  .navbar div,
-  .navbar div a {
-    width: auto;
-  }
-  .navbar div a {
-    font-size: 0.9rem;
-    margin: 4px 2px;
-    padding: 2px;
-  }
+    font-family: Poppins;
+
+}
+
+body {
+
+    min-height: 100vh;
+
+   
+
+    transition: var(--transition1);
+
+}
+
+body.dark {
+
+    --body-color: #18191a;
+
+    --sidebar-color: #242526;
+
+    --primary-color: #3a3b3c;
+
+    --primary-color-light: #3a3b3c;
+
+    --toggle-color: #fff;
+
+    --text-color: #ccc;
+
+}
+
+section {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+   
+
+}
+
+section nav {
+
+    position: relative;
+
+    width: 250px;
+
+    height: 100%;
+
+    background: var(--sidebar-color);
+
+    padding: 25px;
+
+    transition: var(--transition1);
+
+    box-shadow: 0 2px 150px rgba(0, 0, 0, .2);
+
+}
+
+section nav header {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 70px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+section nav header .imgBx {
+
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+
+section nav header .imgBx img {
+
+    position: relative;
+
+    width: 50px;
+
+    height: 50px;
+
+    object-fit: cover;
+
+    cursor: pointer;
+
+    margin-right: 10px;
+
+    border-radius: 10px;
+
+}
+
+section nav header h3 {
+
+    color: var(--text-color);
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    line-height: 20px;
+
+    transition: var(--transition1);
+
+}
+
+section nav header h3 span {
+
+    white-space: nowrap;
+
+    font-size: 15px;
+
+}
+
+section nav.active header h3 {
+
+    opacity: 0;
+
+}
+
+
+section nav header .toggle {
+
+    position: absolute;
+
+    right: -40px;
+
+    width: 30px;
+
+    height: 30px;
+
+
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+}
+
+
+section nav.active {
+
+    width: 100px;
+
+}
+
+
+section nav header .toggle i {
+
+    color: var(--primary-color-light);
+
+    animation: animToggle .5s ease;
+
+    filter: drop-shadow(0px 1px 3px 1px rgba(60, 64, 67, 0.15));
+
+}
+
+body.dark nav header .toggle i{
+
+    color: var(--text-color);
+
+}
+
+section nav header .toggle i:nth-child(1) {
+
+    display: none;
+
+}
+
+
+section nav.active header .toggle i:nth-child(2) {
+
+    display: none;
+
+}
+
+
+section nav.active header .toggle i:nth-child(1) {
+
+    display: block;
+
+}
+
+
+@keyframes animToggle {
+
+    0% {
+
+        opacity: 0;
+
+    }
+
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+section nav menu {
+
+    position: relative;
+
+    width: 100%;
+
+    height: calc(100% - 70px);
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    flex-direction: column;
+
+}
+
+
+section nav menu ul {
+
+    position: relative;
+
+    width: 100%;
+
+    margin-top: 50px;
+
+}
+
+
+section nav menu ul li {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 50px;
+
+    margin-bottom: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+
+section nav menu ul li:first-child {
+
+    background: var(--body-color);
+
+}
+
+
+section nav menu ul li:first-child .fa-magnifying-glass {
+
+    position: relative;
+
+    width: 50px;
+
+    min-width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-right: 10px;
+
+    cursor: pointer;
+
+}
+
+body.dark menu ul li:first-child .fa-magnifying-glass{
+
+    color: var(--text-color);
+
+}
+
+section nav menu ul li:first-child input {
+
+    position: relative;
+
+    width: calc(100% - 50px);
+
+    padding-right: 15px;
+
+    background: transparent;
+
+    outline: none;
+
+    border: none;
+
+    font-size: 18px;
+
+    transition: var(--transition);
+
+    color: var(--text-color);
+
+}
+
+
+section nav.active menu ul li:first-child input {
+
+    opacity: 0;
+
+}
+
+
+section nav menu ul li a {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+    transition: var(--transition1);
+
+    overflow: hidden;
+
+}
+
+
+section nav menu ul li a:hover {
+
+    background: var(--primary-color);
+
+    color: var(--primary-color-light);
+
+}
+
+
+section nav menu ul li a i.fa-solid {
+
+    position: relative;
+
+    width: 50px;
+
+    min-width: 50px;
+
+    height: 50px;
+
+    margin-right: 10px;
+
+    font-size: 20px;
+
+    color: var(--text-color);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transition: var(--transition);
+
+}
+
+
+section nav menu ul li a span {
+
+    font-size: 20px;
+
+    text-transform: capitalize;
+
+    font-weight: 500;
+
+    color: var(--text-color);
+
+    transition: var(--transition);
+
+}
+
+section nav menu ul li a:hover i.fa-solid,
+
+section nav menu ul li a:hover span {
+
+    color: var(--primary-color-light);
+
+}
+
+body.dark menu ul li a:hover i.fa-solid,
+
+body.dark menu ul li a:hover span{
+
+    color: var(--text-color);
+
+}
+
+section nav.active menu ul li a span {
+
+    opacity: 0;
+
+}
+
+section nav menu .mode {
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+section nav menu .mode .icon {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 50px;
+
+    margin-bottom: 5px;
+
+    border-radius: 10px;
+
+    transition: var(--transition);
+
+    overflow: hidden;
+
+}
+
+
+section nav menu .mode .icon:hover {
+
+    background: var(--primary-color);
+
+}
+
+section nav menu .mode .icon a {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    text-decoration: none;
+
+}
+
+section nav menu .mode .icon a i.fa-solid {
+
+    position: relative;
+
+    width: 50px;
+
+    min-width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-right: 10px;
+
+    font-size: 20px;
+
+    color: var(--text-color);
+
+    transition: var(--transition);
+
+}
+
+section nav menu .mode .icon a span {
+
+    font-size: 20px;
+
+    text-transform: capitalize;
+
+    font-weight: 500;
+
+    color: var(--text-color);
+
+    transition: var(--transition);
+
+}
+
+
+section nav menu .mode .icon:hover a i.fa-solid,
+
+section nav menu .mode .icon:hover a span {
+
+    color: var(--primary-color-light);
+
+}
+
+body.dark menu .mode .icon:hover a i.fa-solid,
+
+body.dark menu .mode .icon:hover a span{
+
+    color: var(--text-color);
+
+}
+
+section nav.active menu .mode .icon a span {
+
+    opacity: 0;
+
+}
+
+section nav menu .mode .dayNight {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 50px;
+
+    background: var(--body-color);
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+section nav menu .mode .dayNight .switch {
+
+    position: relative;
+
+    width: 50px;
+
+    min-width: 50px;
+
+    height: 50px;
+
+    margin-right: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+section nav menu .mode .dayNight .switch .iconBx {
+
+    position: relative;
+
+    width: 35px;
+
+    height: 35px;
+
+    background: var(--toggle-color);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+}
+
+section nav menu .mode .dayNight .switch .iconBx i.fa-solid{
+
+    position: absolute;
+
+    font-size: 20px;
+
+    color: var(--text-color);
+
+    animation: animToggle 1s ease;
+
+    transition: var(--transition);
+
+}
+
+section nav menu .mode .dayNight span {
+
+    font-size: 20px;
+
+    text-transform: capitalize;
+
+    font-weight: 500;
+
+    color: var(--text-color);
+
+    white-space: nowrap;
+
+    transition: var(--transition1);
+
+}
+
+
+ section nav.active menu .mode .dayNight span {
+
+    opacity: 0;
+
+}
+
+
+section nav menu .mode .dayNight .switch .iconBx i.fa-solid:last-child{
+
+    transform: translateX(30px);
+
+    color: var(--primary-color-light);
+
+}
+
+body.dark .mode .dayNight .switch .iconBx i.fa-solid:first-child{
+
+    transform: translateX(-30px);
+
+}
+
+body.dark .mode .dayNight .switch .iconBx i.fa-solid:last-child{
+
+    transform: translateX(0);
+
+}
+
+section main{
+
+    padding: 40px 30px;
+
+}
+
+section main h2{
+
+    color: var(--text-color);
+
+    font-size: 26px;
+
+    font-weight: 600;
+
+    line-height: 20px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+section main h2 span{
+
+    color: var(--text-color);
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    text-transform: capitalize;
+
+    letter-spacing: 0;
+
+}:root {
+
+    --body-color: #E4E9F7;
+
+    --sidebar-color: #FFF;
+
+    --primary-color: #695CFE;
+
+    --primary-color-light: #F6F5FF;
+
+    --toggle-color: #DDD;
+
+    --text-color: #707070;
+
+    --transition: all .3s ease;
+
+    --transition1: all .5s ease;
+
+}
+
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: Poppins;
+
+}
+
+body {
+
+    min-height: 100vh;
+
+    background: var(--body-color);
+
+    transition: var(--transition1);
+
+}
+
+body.dark {
+
+    --body-color: #18191a;
+
+    --sidebar-color: #242526;
+
+    --primary-color: #3a3b3c;
+
+    --primary-color-light: #3a3b3c;
+
+    --toggle-color: #fff;
+
+    --text-color: #ccc;
+
+}
+
+section {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    display: flex;
+
+}
+
+section nav {
+
+    position: relative;
+
+    width: 250px;
+
+    height: 100%;
+
+    background: var(--sidebar-color);
+
+    padding: 25px;
+
+    transition: var(--transition1);
+
+    box-shadow: 0 2px 150px rgba(0, 0, 0, .2);
+
+}
+
+section nav header {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 70px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+section nav header .imgBx {
+
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+
+section nav header .imgBx img {
+
+    position: relative;
+
+    width: 50px;
+
+    height: 50px;
+
+    object-fit: cover;
+
+    cursor: pointer;
+
+    margin-right: 10px;
+
+    border-radius: 10px;
+
+}
+
+section nav header h3 {
+
+    color: var(--text-color);
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    text-transform: uppercase;
+
+    line-height: 20px;
+
+    transition: var(--transition1);
+
+}
+
+section nav header h3 span {
+
+    white-space: nowrap;
+
+    font-size: 15px;
+
+}
+
+section nav.active header h3 {
+
+    opacity: 0;
+
+}
+
+
+section nav header .toggle {
+
+    position: absolute;
+
+    right: -40px;
+
+    width: 30px;
+
+    height: 30px;
+
+    background: var(--primary-color);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+}
+
+
+section nav.active {
+
+    width: 100px;
+
+}
+
+
+section nav header .toggle i {
+
+    color: var(--primary-color-light);
+
+    animation: animToggle .5s ease;
+
+    filter: drop-shadow(0px 1px 3px 1px rgba(60, 64, 67, 0.15));
+
+}
+
+body.dark nav header .toggle i{
+
+    color: var(--text-color);
+
+}
+
+section nav header .toggle i:nth-child(1) {
+
+    display: none;
+
+}
+
+
+section nav.active header .toggle i:nth-child(2) {
+
+    display: none;
+
+}
+
+
+section nav.active header .toggle i:nth-child(1) {
+
+    display: block;
+
+}
+
+
+@keyframes animToggle {
+
+    0% {
+
+        opacity: 0;
+
+    }
+
+
+    100% {
+
+        opacity: 1;
+
+    }
+
+}
+
+
+section nav menu {
+
+    position: relative;
+
+    width: 100%;
+
+    height: calc(100% - 70px);
+
+    overflow: hidden;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    flex-direction: column;
+
+}
+
+
+section nav menu ul {
+
+    position: relative;
+
+    width: 100%;
+
+    margin-top: 50px;
+
+}
+
+
+section nav menu ul li {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 50px;
+
+    margin-bottom: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+
+section nav menu ul li:first-child {
+
+    background: var(--body-color);
+
+}
+
+
+section nav menu ul li:first-child .fa-magnifying-glass {
+
+    position: relative;
+
+    width: 50px;
+
+    min-width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-right: 10px;
+
+    cursor: pointer;
+
+}
+
+body.dark menu ul li:first-child .fa-magnifying-glass{
+
+    color: var(--text-color);
+
+}
+
+section nav menu ul li:first-child input {
+
+    position: relative;
+
+    width: calc(100% - 50px);
+
+    padding-right: 15px;
+
+    background: transparent;
+
+    outline: none;
+
+    border: none;
+
+    font-size: 18px;
+
+    transition: var(--transition);
+
+    color: var(--text-color);
+
+}
+
+
+section nav.active menu ul li:first-child input {
+
+    opacity: 0;
+
+}
+
+
+section nav menu ul li a {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+    transition: var(--transition1);
+
+    overflow: hidden;
+
+}
+
+
+section nav menu ul li a:hover {
+
+    background: var(--primary-color);
+
+    color: var(--primary-color-light);
+
+}
+
+
+section nav menu ul li a i.fa-solid {
+
+    position: relative;
+
+    width: 50px;
+
+    min-width: 50px;
+
+    height: 50px;
+
+    margin-right: 10px;
+
+    font-size: 20px;
+
+    color: var(--text-color);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    transition: var(--transition);
+
+}
+
+
+section nav menu ul li a span {
+
+    font-size: 20px;
+
+    text-transform: capitalize;
+
+    font-weight: 500;
+
+    color: var(--text-color);
+
+    transition: var(--transition);
+
+}
+
+section nav menu ul li a:hover i.fa-solid,
+
+section nav menu ul li a:hover span {
+
+    color: var(--primary-color-light);
+
+}
+
+body.dark menu ul li a:hover i.fa-solid,
+
+body.dark menu ul li a:hover span{
+
+    color: var(--text-color);
+
+}
+
+section nav.active menu ul li a span {
+
+    opacity: 0;
+
+}
+
+section nav menu .mode {
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+section nav menu .mode .icon {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 50px;
+
+    margin-bottom: 5px;
+
+    border-radius: 10px;
+
+    transition: var(--transition);
+
+    overflow: hidden;
+
+}
+
+
+section nav menu .mode .icon:hover {
+
+    background: var(--primary-color);
+
+}
+
+section nav menu .mode .icon a {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    text-decoration: none;
+
+}
+
+section nav menu .mode .icon a i.fa-solid {
+
+    position: relative;
+
+    width: 50px;
+
+    min-width: 50px;
+
+    height: 50px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-right: 10px;
+
+    font-size: 20px;
+
+    color: var(--text-color);
+
+    transition: var(--transition);
+
+}
+
+section nav menu .mode .icon a span {
+
+    font-size: 20px;
+
+    text-transform: capitalize;
+
+    font-weight: 500;
+
+    color: var(--text-color);
+
+    transition: var(--transition);
+
+}
+
+
+section nav menu .mode .icon:hover a i.fa-solid,
+
+section nav menu .mode .icon:hover a span {
+
+    color: var(--primary-color-light);
+
+}
+
+body.dark menu .mode .icon:hover a i.fa-solid,
+
+body.dark menu .mode .icon:hover a span{
+
+    color: var(--text-color);
+
+}
+
+section nav.active menu .mode .icon a span {
+
+    opacity: 0;
+
+}
+
+section nav menu .mode .dayNight {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 50px;
+
+    background: var(--body-color);
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+section nav menu .mode .dayNight .switch {
+
+    position: relative;
+
+    width: 50px;
+
+    min-width: 50px;
+
+    height: 50px;
+
+    margin-right: 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+section nav menu .mode .dayNight .switch .iconBx {
+
+    position: relative;
+
+    width: 35px;
+
+    height: 35px;
+
+    background: var(--toggle-color);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+}
+
+section nav menu .mode .dayNight .switch .iconBx i.fa-solid{
+
+    position: absolute;
+
+    font-size: 20px;
+
+    color: var(--text-color);
+
+    animation: animToggle 1s ease;
+
+    transition: var(--transition);
+
+}
+
+section nav menu .mode .dayNight span {
+
+    font-size: 20px;
+
+    text-transform: capitalize;
+
+    font-weight: 500;
+
+    color: var(--text-color);
+
+    white-space: nowrap;
+
+    transition: var(--transition1);
+
+}
+
+
+ section nav.active menu .mode .dayNight span {
+
+    opacity: 0;
+
+}
+
+
+section nav menu .mode .dayNight .switch .iconBx i.fa-solid:last-child{
+
+    transform: translateX(30px);
+
+    color: var(--primary-color-light);
+
+}
+
+body.dark .mode .dayNight .switch .iconBx i.fa-solid:first-child{
+
+    transform: translateX(-30px);
+
+}
+
+body.dark .mode .dayNight .switch .iconBx i.fa-solid:last-child{
+
+    transform: translateX(0);
+
+}
+
+section main{
+
+    padding: 40px 30px;
+
+}
+
+section main h2{
+
+    color: var(--text-color);
+
+    font-size: 26px;
+
+    font-weight: 600;
+
+    line-height: 20px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+section main h2 span{
+
+    color: var(--text-color);
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    text-transform: capitalize;
+
+    letter-spacing: 0;
+
 }
 
 </style>
-</head>
-<body>
-
-<nav class="navbar">
-  <a href="#">Home</a>
-  <a href="items">About</a>
-  <div>
-    <a href="#">Services</a>
-    <a href="#">Products</a>
-  </div>
-  <div>
-    <a href="#">Dev Com</a>
-    <a href="#">Blog</a>
-    <a href="#">Forum</a>
-  </div>
-  <a href="#">News</a>
-  <a href="#">Contacts</a>
-</nav>
-<p style="text-align: left;font-size: 15pt"><span th:text="${u.name}"> &#128075;</p>
-
-</body>
-
-	
 <script>
+            const activeToggle = document.querySelector('.toggle');
+        const body = document.querySelector('body');
+        const nav = document.querySelector('nav');
+        const faMagnifyingGlass = document.querySelector('.fa-magnifying-glass');
+        const switchBx = document.querySelector('.switch');
+        const switchText = document.querySelector('.switchText');
 
+        activeToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+        faMagnifyingGlass.addEventListener('click', () => {
+            nav.classList.remove('active');
+        });
+        switchBx.addEventListener("click", () => {
+            body.classList.toggle("dark");
+
+            if (body.classList.contains("dark")) {
+                switchText.innerText = "light mode";
+                switchText.style.transition = '.5s ease';
+            } else {
+                switchText.innerText = "dark mode";
+                switchText.style.transition = '.5s ease'
+            }
+        });
 </script>
 </html>

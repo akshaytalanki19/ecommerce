@@ -51,6 +51,7 @@ public class mycontroller
 	private ReatilerService reatilerService;
 	@Autowired
 	private ProductService productService;
+	public User user;
 	@GetMapping("/")
 	public String home()
 	{
@@ -135,6 +136,7 @@ public class mycontroller
 		User u=customerService.checkuserlogin(name,pwd);
 		if(u!=null)
 		{
+			user=u;
 			return new ModelAndView("customerhome","u",u);
 		}
 		else
@@ -152,8 +154,15 @@ public class mycontroller
 	{
 		Product p=new Product();
 		List<Product> l=productService.getItems();
-		return new ModelAndView("items","l",l);
+		List<Product> sl=productService.getShoes();
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("items");
+		mv.addObject("shoes", sl);
+		mv.addObject("l", l);
+		mv.addObject("u",user);
+		return mv;
 	}
+	
 	//retailer
 	@GetMapping("/reatilerlogin")
 	public String reatilerlogin()

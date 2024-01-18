@@ -10,7 +10,6 @@ import com.ecommerce.website.model.Product;
 public interface ProductRepository  extends JpaRepository<Product, Integer> {
 	@Query("select u from Product u")
 	 public List<Product>  getAll();
-    
-
-
+	@Query("select u from Product u where u.pname in ('shoes', 'shoe')")
+	public List<Product> getShoes();
 }

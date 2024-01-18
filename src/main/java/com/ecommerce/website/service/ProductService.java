@@ -11,4 +11,6 @@ public interface ProductService {
 
 	public Product ViewProductByID(int pid);
 
+	public List<Product> getShoes();
+
 }
