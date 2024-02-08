@@ -1,5 +1,7 @@
 package com.ecommerce.website.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,16 @@ public class ReatilerServiceImpl implements ReatilerService {
 	public Reatiler checkreatiler(String email, String pwd) {
 		return reatilerRepository.checkreatiler(email,pwd);
 	
+	}
+	@Override
+	public List<Reatiler> viewReatiler() {
+		
+		return reatilerRepository.findAll();
+	}
+	@Override
+	public long getCount() {
+		
+		return reatilerRepository.count();
 	}
 	
 	

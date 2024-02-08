@@ -24,7 +24,7 @@
       <div id="main-container">
         <div class="sidenavContentHeader">Trending</div>
         <a href="#"><div class="sidenavContent">Best Sellers</div></a>
-        <a href="#"><div class="sidenavContent">New Releases</div></a>
+        <a href="#" id="toggle-link0"><div class="sidenavContent">New Releases</div></a>
         <a href="#"><div class="sidenavContent">Movers and Shakers</div></a>
         <hr />
         <div class="sidenavContentHeader">Shop By Department</div>
@@ -59,7 +59,7 @@
               <i class="fas fa-chevron-right" style="color: #8e9090"></i>
             </div>
           </a>
-          <a href="#">
+          <a href="#" id="toggle-link6">
             <div class="sidenavRow">
               <div>Toys, Children & Baby</div>
               <i class="fas fa-chevron-right" style="color: #8e9090"></i>
@@ -156,8 +156,8 @@
         <hr />
         <div class="sidenavContentHeader">Help & Settings</div>
         <a href="#"><div class="sidenavContent">Your Account</div></a>
-        <a href="#"><div class="sidenavContent">Currency Settings</div></a>
-        <a href="#"><div class="sidenavContent">Customer Service</div></a>
+        <a href="cutomerhome"><div class="sidenavContent">Go Back</div></a>
+        <a href="customerlogin"><div class="sidenavContent">Sing out</div></a>
         <div style="height: 50px"></div>
       </div>
       <!--End of first container-->
@@ -194,7 +194,7 @@
                 <div class="rate">
                     <h5 th:text="${p.price}"></h5>
                 </div>
-                
+                <br>
                 
                 <a href="#" class="btn">Save</a>
                 <a href="#" class="btn btn-primary">Add to Cart</a>
@@ -203,17 +203,28 @@
     </div>
 </div>
 </div>
-<div class="root" id="hidden-content" style="display: none;">
-    <div th:each="p : ${shoes}">
-    <div style="width: 395px; height: 444px; right: 10px; position:relative; background: #FAFAF5; border-radius: 24px; overflow: hidden; border: 2px #E6E6E6 solid">
-      <div style="left: 24px; top: 280px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 26px; word-wrap: break-word"> <h1 th:text="${p.pname}"></h1></div>
-      <div style="left: 24px; top: 310px; position: absolute; color: #426B1F; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 26px; word-wrap: break-word">&#8377;<h5 th:text="${p.price}"></h5></div>
-      <div style="left: 24px; top: 332px; position: absolute; color: #6D6D6D; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 24px; word-wrap: break-word"><p th:text="${p.description}"></p></div>
-            <button style="left: 24px; top: 372px; position: absolute; color: #6D6D6D; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 24px; word-wrap: break-word">Add to cart</button>
-      <img style="width: 395px; height: 296px; left: 0px; top: -25px; position: absolute" th:src="@{/displayprodimage(id=${p.id})}" />
-    </div>
+<div class="root" id="hidden-content" style="display: none; flex-wrap: wrap; flex-direction: row; ">
+  <div th:each="p : ${shoes}">
+  <div style="width: 395px; height: 444px; right: 10px; position:relative; background: #FAFAF5; border-radius: 24px; overflow: hidden; border: 2px #E6E6E6 solid">
+    <div style="left: 24px; top: 280px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 26px; word-wrap: break-word"> <h1 th:text="${p.pname}"></h1></div>
+    <div style="left: 24px; top: 310px; position: absolute; color: #426B1F; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 26px; word-wrap: break-word">&#8377;<h5  th:text="${p.price}"></h5></div>
+    <div style="left: 24px; top: 352px; position: absolute; color: #6D6D6D; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 24px; word-wrap: break-word"><p th:text="${p.description}"></p></div>
+    <button style="left: 24px; top: 392px; position: absolute;">Add to cart</button>
+    <img style="width: 395px; height: 296px; left: 0px; top: -25px; position: absolute" th:src="@{/displayprodimage(id=${p.id})}" />
+  </div>
 </div></div>
-
+<!-- </div> -->
+<!--trending-->
+<div class="root" id="hidden-content" style="display: none; flex-wrap: wrap; flex-direction: row; ">
+  <div th:each="p : ${shoes}">
+  <div style="width: 395px; height: 444px; right: 10px; position:relative; background: #FAFAF5; border-radius: 24px; overflow: hidden; border: 2px #E6E6E6 solid">
+    <div style="left: 24px; top: 280px; position: absolute; color: black; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 26px; word-wrap: break-word"> <h1 th:text="${p.pname}"></h1></div>
+    <div style="left: 24px; top: 310px; position: absolute; color: #426B1F; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 26px; word-wrap: break-word"><br>&#8377;<h5 th:text="${p.price}"></h5></div>
+    <div style="left: 24px; top: 352px; position: absolute; color: #6D6D6D; font-size: 16px; font-family: Inter; font-weight: 400; line-height: 24px; word-wrap: break-word"><p th:text="${p.description}"></p></div>
+          <button style="left: 24px; top: 392px; position: absolute;">Add to cart</button>
+    <img style="width: 395px; height: 296px; left: 0px; top: -25px; position: absolute" th:src="@{/displayprodimage(id=${p.id})}" />
+  </div>
+</div></div>
 </body>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -734,21 +745,33 @@ document.getElementById("toggle-link").addEventListener("click", function() {
   }
 });
 console.clear();
-
-const elShoes = document.querySelectorAll(".shoe");
-
-[...elShoes].forEach((shoe) => {
-  shoe.addEventListener("click", () => {
-    [...document.querySelectorAll(".shoe[data-active]")].forEach(
-      (el) => delete el.dataset.active
-    );
-
-    shoe.dataset.active = true;
-  });
+document.getElementById("toggle-link0").addEventListener("click", function() {
+  // Get the div element
+  var div = document.getElementById("hidden-content1");
+  var div1= document.getElementById("all-products")
+  // Toggle the visibility of the div
+  if (div.style.display === "none") {
+    div.style.display = "block";
+    div1.style.display = "none";
+  } else {
+    div.style.display = "none";
+    div1.style.display = "block";
+  }
 });
+document.getElementById("toggle-link6").addEventListener("click", function() {
+  // Get the div element
+  var div = document.getElementById("hidden-content7");
+  var div1= document.getElementById("all-products")
+  // Toggle the visibility of the div
+  if (div.style.display === "none") {
+    div.style.display = "block";
+    div1.style.display = "none";
+  } else {
+    div.style.display = "none";
+    div1.style.display = "block";
+  }
+});
+
 </script>
 
 </html>
-
-
-

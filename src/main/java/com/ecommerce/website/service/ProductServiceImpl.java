@@ -30,6 +30,42 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> getShoes() {
 		return productRepository.getShoes();
 	}
+	@Override
+	public List<Product> getTrend() {
+		return productRepository.getTrend();
+	}
+	@Override
+	public List<Product> getFruits() {
+		return productRepository.getFruits();
+	}
+	@Override
+	public List<Product> getBooks() {
+		return productRepository.getBooks();
+	}
+	@Override
+	public List<Product> getElectroncis() {
+		return productRepository.getElectroncis();
+	}
+	@Override
+	public List<Product> getGames() {
+		return productRepository.getGames();
+	}
+	@Override
+	public List<Product> getHome() {
+		return productRepository.getHome();
+	}
+	@Override
+	public List<Product> getToys() {
+		return productRepository.getToys();
+	}
+	@Override
+	public List<Product> getWatches() {
+		return productRepository.getWatches();
+	}
+	@Override
+	public List<Product> getHealth() {
+		return productRepository.getHealth();
+	}
 	
 	
 

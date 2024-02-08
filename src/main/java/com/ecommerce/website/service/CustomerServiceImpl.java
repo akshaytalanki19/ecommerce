@@ -21,5 +21,9 @@ public class CustomerServiceImpl implements CustomerService {
 		
 		return customerRepository.checkuserlogin(name,pwd);
 	}
+	@Override
+	public long getCount() {
+		return customerRepository.count();
+	}
 	
 }

@@ -16,7 +16,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -71,23 +73,54 @@ public class mycontroller
 	    String uname = request.getParameter("uname");
 	     String pwd = request.getParameter("pwd");
 		Admin admin = adminService.checkadminlogin(uname, pwd);
-	    
+		ModelAndView mv=new ModelAndView();
 	    if(admin!=null)
 	    {
-	      
-	      return new ModelAndView("adminhome","a", admin);
+	    	mv.setViewName("adminhome");
+			long count=customerService.getCount();
+			mv.addObject("ucount", count);
+			List<User> list=adminService.viewUsers();
+			mv.addObject("l", list);
+			mv.addObject("a", admin);
+			List<Reatiler> rl=reatilerService.viewReatiler();
+		    mv.addObject("rl", rl);
+		    long rcount=reatilerService.getCount();
+			mv.addObject(rcount);
+			return mv; 
 	    }
 	    else
-	    {	
-	    	return new ModelAndView("adminlogin","message", "Login Failed");
+	    {	mv.setViewName("adminlogin");
+	        mv.addObject("message", "Login Failed");
+	        return mv;
 	    }
 	    
 	    
 	}
-	
+	@RequestMapping("deleteReatiler/{id}")
+	public String deleteReatiler(@PathVariable("id") int id)
+	{
+		adminService.deleteReatiler(id);
+		return "adminlogin";
+	}
+	@RequestMapping("/deleteUser/{id}")
+	public String deleteUser(@PathVariable("id")int id) {
+		adminService.deleteById(id);
+		return "adminlogin";
+	}
 	@GetMapping("/adminhome")
-	public String adminhome() {
-		return "adminhome";
+	public ModelAndView adminhome() {
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("adminhome");
+		long count=customerService.getCount();
+		mv.addObject("ucount", count);
+		List<User> list=adminService.viewUsers();
+		mv.addObject("l", list);
+		List<Reatiler> rl=reatilerService.viewReatiler();
+	    mv.addObject("rl", rl);
+		
+	long rcount=reatilerService.getCount();
+		mv.addObject(rcount);
+		return mv;
 	}
 	
 	@GetMapping("viewallusers")
@@ -152,13 +185,31 @@ public class mycontroller
 	@GetMapping("/items")
 	public ModelAndView items()
 	{
-		Product p=new Product();
 		List<Product> l=productService.getItems();
 		List<Product> sl=productService.getShoes();
+		List<Product> tl=productService.getTrend();
+		List<Product> fl=productService.getFruits();
+		List<Product> bl=productService.getBooks();
+		List<Product> gl=productService.getGames();
+		List<Product> el=productService.getElectroncis();
+		List<Product> hl=productService.getHome();
+		List<Product> tl1=productService.getToys();
+		List<Product> wl=productService.getWatches();
+		List<Product> hel=productService.getHealth();
 		ModelAndView mv=new ModelAndView();
 		mv.setViewName("items");
 		mv.addObject("shoes", sl);
+		mv.addObject("watch", wl);
+		mv.addObject("health", hel);
+		mv.addObject("toys", tl1);
+		mv.addObject("home", hl);
+		mv.addObject("electronics", el);
+		mv.addObject("games", gl);
+		mv.addObject("books", bl);
+		mv.addObject("fruits", fl);
+		mv.addObject("trend", tl);
 		mv.addObject("l", l);
+		
 		mv.addObject("u",user);
 		return mv;
 	}

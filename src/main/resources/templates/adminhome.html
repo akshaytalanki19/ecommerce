@@ -1,4 +1,11 @@
-
+<body>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0faddc1af8.js" crossorigin="anonymous"></script>
 <div id="nav-bar">
   <input id="nav-toggle" type="checkbox"/>
   <div id="nav-header"><a id="nav-title" href="https://codepen.io" target="_blank"><i class="fab fa-codepen"></i>Admin</a>
@@ -6,12 +13,12 @@
     <hr/>
   </div>
   <div id="nav-content">
-    <div class="nav-button"><a href ="viewallusers"><i class="fas fa-palette"></i><span>view all users</span></a></div>
-    <div class="nav-button"><a href ="viewUserCount"><i class="fas fa-images"></i><span>count of users</span></a></div>
-    <div class="nav-button"><a href="deletefromuser"><i class="fas fa-thumbtack"></i><span>delete user</span></a></div>
+    <div class="nav-button"><a href ="#" id="toggle-link"><i class="fas fa-palette"></i><span>view all users</span></a></div>
+    <div class="nav-button"><a href ="#" id="toggle-link1"><i class="fas fa-images"></i><span>count of users</span></a></div>
+    <div class="nav-button"><a href="#" id="toggle-link2"><i class="fas fa-thumbtack"></i><span>delete user</span></a></div>
     <hr/>
-    <div class="nav-button"><a href ="deletestaff"><i class="fas fa-chart-line"></i><span>delete staff</span></a></div>
-    <div class="nav-button"><i class="fas fa-chart-line"></i><span>delete by id</span></div>
+    <div class="nav-button"><a href ="#" id="toggle-link3"><i class="fas fa-chart-line"></i><span>delete staff</span></a></div>
+    <div class="nav-button"><a href ="#" id="toggle-link4"><i class="fas fa-chart-line"></i><span>Count of reatilers</span></div>
     <div class="nav-button"><i class="fas fa-fire"></i><span>view user by id</span></div>
     <div class="nav-button"><a href ="insertfaculty"><i class="fas fa-magic"></i><span>insert faculty</span></a></div>
     <hr/>
@@ -26,11 +33,140 @@
       <div id="nav-footer-titlebox"><a id="nav-footer-title" href="" target="_blank"><span th:text="${a.id}"></span></a><span id="nav-footer-subtitle">Admin</span></div>
       <label for="nav-footer-toggle"><i class="fas fa-caret-up"></i></label>
     </div>
-    <div id="nav-footer-content">
-      
-    </div>
   </div>
 </div>
+<!--users-->
+<div class="container my-5 col-md-8" style="display: none;" id="all-products">
+  <table class="table  table-striped table-hover">
+<thead>
+<tr>
+  <th scope="col">Id</th>
+  <th scope="col">Name</th>
+  <th scope="col">email</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="u :${l}">
+  <td th:text="${u.id}"></td>
+  <td th:text="${u.name}"></td>
+  <td th:text="${u.email}"></td>
+  
+</tr>
+
+</tbody>
+</table>
+</div>
+<!--user count-->
+<div class="container" id="count" style="display: none; left: 55px; margin-top: 25px;">
+ <h1> the user Count is <p th:text="${ucount}"></p></h1>
+</div>
+<!--delete users-->
+<div class="container my-5 col-md-8" style="display: none;" id="delete">
+  <table class="table  table-striped table-hover">
+<thead>
+<tr>
+  <th scope="col">Id</th>
+  <th scope="col">Name</th>
+  <th scope="col">email</th>
+  <th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="u :${l}">
+  <td th:text="${u.id}"></td>
+  <td th:text="${u.name}"></td>
+  <td th:text="${u.email}"></td>
+  <td><a style="color:red" th:href="@{/deleteUser/{id}(id=${u.id})}"><i class="fa-solid fa-trash"></i></a></td> 
+</tr>
+
+</tbody>
+</table>
+</div>
+<div class="container my-5 col-md-8" style="display: none;" id="deletereatiler">
+  <table class="table  table-striped table-hover">
+<thead>
+<tr>
+  <th scope="col">Id</th>
+  <th scope="col">Name</th>
+  <th scope="col">email</th>
+  <th scope="col">shop-name</th>
+  <th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr th:each="u :${rl}">
+  <td th:text="${u.id}"></td>
+  <td th:text="${u.name}"></td>
+  <td th:text="${u.email}"></td>
+  <td th:text="${u.shopname}"></td>
+  <td><a style="color:red" th:href="@{/deleteReatiler/{id}(id=${u.id})}"><i class="fa-solid fa-trash"></i></a></td> 
+</tr>
+
+</tbody>
+</table>
+</div>
+<!--reatiler count-->
+<div class="container" id="countreatiler" style="display: none; left: 55px; margin-top: 25px;">
+ <h1> the retailer Count is <p th:text="${rcount}"></p></h1>
+</div>
+</body>
+<script>
+  document.getElementById("toggle-link").addEventListener("click", function() {
+  // Get the div element
+  var div= document.getElementById("all-products")
+  // Toggle the visibility of the div
+  if (div.style.display === "none") {
+    div.style.display = "block";
+ 
+  } else {
+    div.style.display = "none";
+  }
+});
+document.getElementById("toggle-link1").addEventListener("click", function() {
+  // Get the div element
+  var div= document.getElementById("count")
+  // Toggle the visibility of the div
+  if (div.style.display === "none") {
+    div.style.display = "block";
+ 
+  } else {
+    div.style.display = "none";
+  }
+});
+document.getElementById("toggle-link2").addEventListener("click", function() {
+  // Get the div element
+  var div= document.getElementById("delete")
+  // Toggle the visibility of the div
+  if (div.style.display === "none") {
+    div.style.display = "block";
+ 
+  } else {
+    div.style.display = "none";
+  }
+});
+document.getElementById("toggle-link3").addEventListener("click", function() {
+  // Get the div element
+  var div= document.getElementById("deletereatiler")
+  // Toggle the visibility of the div
+  if (div.style.display === "none") {
+    div.style.display = "block";
+ 
+  } else {
+    div.style.display = "none";
+  }
+});
+document.getElementById("toggle-link4").addEventListener("click", function() {
+  // Get the div element
+  var div= document.getElementById("countreatiler")
+  // Toggle the visibility of the div
+  if (div.style.display === "none") {
+    div.style.display = "block";
+ 
+  } else {
+    div.style.display = "none";
+  }
+});
+</script>
     <style>
    :root {
   --background: #f3e0e2;
@@ -44,7 +180,7 @@
 
 html, body {
   margin: 0;
-  background: var(--background);
+  /* background: var(--background); */
 }
 
 #nav-toggle:checked ~ #nav-header {
